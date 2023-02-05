@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>حساب المعدل | العميد</title>
+    <link rel="icon" type="image/png" href="https://static.wixstatic.com/media/31fb20_f6c0f084c1c44a0abb62b18e8b27fc40~mv2.png">
+  </head>
+  <body style="margin: 0">
+    <div class="mobile">
+      <ul>
+        <li style="order: 6">
+          <a
+            href="https://elcom-team.com/elcom-%d8%b9%d8%a7%d8%a6%d9%84%d8%a9/%d9%81%d8%b1%d9%8a%d9%82-%d8%a7%d9%84%d9%85%d9%88%d9%82%d8%b9/"
+            >فريق الموقع
+          </a>
+        </li>
+        <!-- <li>
+              
+           
+              <a href="#"><i class="fa fa-chevron-down"></i>  عائلة ElCoM </a>
+               <ul>
+       
+                   <li><a href="https://elcom-hu.com/main/elcom-%d8%b9%d8%a7%d8%a6%d9%84%d8%a9/testing-page/">فريق الهندسة الكهربائية</a></li>
+                   <li><a href="https://elcomhu.com/main/elcom-%d8%b9%d8%a7%d8%a6%d9%84%d8%a9/%d9%81%d8%b1%d9%8a%d9%82-%d9%87%d9%86%d8%af%d8%b3%d8%a9-%d8%a7%d9%84%d9%85%d9%8a%d9%83%d8%a7%d8%aa%d8%b1%d9%88%d9%86%d9%8a%d9%83%d8%b3/"> فريق هندسة الميكاترونكس</a></li>
+                   <li><a href="https://elcom-hu.com/main/elcom-%d8%b9%d8%a7%d8%a6%d9%84%d8%a9/%d9%81%d8%b1%d9%8a%d9%82-%d9%87%d9%86%d8%af%d8%b3%d8%a9-%d8%a7%d9%84%d8%ad%d8%a7%d8%b3%d9%88%d8%a8/">فريق هندسة الحاسوب</a></li>
+                   <li><a href="https://elcom-hu.com/main/elcom-%d8%b9%d8%a7%d8%a6%d9%84%d8%a9/%d9%81%d8%b1%d9%8a%d9%82-%d8%a7%d9%84%d9%85%d9%88%d9%82%d8%b9/">فريق الموقع</a></li>
+       
+               </ul>
+           
+           -->
+
+        <li style="order: 4">
+          <a
+            href="https://elcom-team.com/%d8%a7%d9%84%d8%af%d8%b9%d9%85-%d8%a7%d9%84%d9%81%d9%86%d9%8a/"
+            >الدعم الفني</a
+          >
+        </li>
+        <li style="order: 3">
+          <a
+            href="https://elcom-team.com/%d8%a8%d8%b1%d8%a7%d9%85%d8%ac-%d9%87%d9%86%d8%af%d8%b3%d9%8a%d8%a9/"
+            >برامج هندسية</a
+          >
+        </li>
+        <li style="order: 2">
+          <a href="#" target="#" aria-current="page" class="active"
+            >حساب المعدل</a
+          >
+        </li>
+        <li style="order: 1">
+          <a href="https://elcom-team.com" aria-current="page"
+            >الصفحة الرئيسية</a
+          >
+        </li>
+      </ul>
+    </div>
+    <h1 class="gpa-cal">حساب المعدل</h1>
+    <form id="calc_grades_form" onsubmit="calc_gpa(event);">
+      <div class="c_container">
+        <div class="flex_right">
+          <h6 class="p_heading">المعدل التراكمي السابق (اختياري)</h6>
+          <div class="p_inputs">
+            <input
+              type="number"
+              min="0"
+              id="p_hours"
+              placeholder="الساعات المقطوعة"
+            />
+            <input type="text" id="p_gpa" placeholder="المعدل السابق" />
+          </div>
+        </div>
+        <div class="flex_right">
+          <p class="p_paragraph" style="font-weight: bold">مواد الفصل</p>
+          <table class="gpa_table" onload="load_table()">
+            <tbody id="gpa_table"></tbody>
+          </table>
+        </div>
+        <div class="table_btns">
+          <div>
+            <button type="button" class="insert_row" onclick="add_row()">
+              <img src="https://elcom-team.com/add.svg" alt="add" />
+            </button>
+          </div>
+          <div>
+            <button type="submit">حساب المعدل</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- <hr class="c_divider" /> -->
+      <div class="conc">
+        <!-- sem -->
+        <div>
+          <p>
+            الساعات الداخلة في حساب المعدل الفصلي
+            <span id="sem_hrs" class="bold"></span>
+          </p>
+          <!-- <p class="center">المعدل الفصلي <span id="sem_gpa" class="bold"></span></p> -->
+          <!-- indicator start -->
+          <div class="indicator_container">
+            <div class="gauge" id="indicator">
+              <div class="gauge__body">
+                <div class="gauge__fill" id="indicator_fill"></div>
+                <div class="gauge__cover"></div>
+              </div>
+            </div>
+            <div>
+              <p id="pass_failed"></p>
+            </div>
+          </div>
+          <!-- indicator end -->
+        </div>
+
+        <!-- all -->
+        <div>
+          <p>
+            الساعات الداخلة في حساب المعدل التراكمي
+            <span id="all_hrs" class="bold"></span>
+          </p>
+          <!-- <p class="center">المعدل التراكمي <span id="all_gpa" class="bold"></span></p> -->
+          <!-- indicator start -->
+          <div class="indicator_container">
+            <div class="gauge" id="indicator2">
+              <div class="gauge__body">
+                <div class="gauge__fill" id="indicator_fill2"></div>
+                <div class="gauge__cover" id="gauge_cover2"></div>
+              </div>
+            </div>
+            <div>
+              <p id="pass_failed2"></p>
+            </div>
+          </div>
+          <!-- indicator end -->
+        </div>
+      </div>
+    </form>
+    <script src="./script.js"></script>
+    <script src="./animate.js"></script>
+  </body>
+</html>
